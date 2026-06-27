@@ -1,0 +1,27 @@
+CREATE TABLE ia_impacto_usoo (
+  id SERIAL PRIMARY KEY,
+  pais VARCHAR(100) NOT NULL,
+  ia_mais_utilizada VARCHAR(100),
+  usuarios_milhoes NUMERIC(10, 2),
+  crescimento_anual_pct NUMERIC(5, 2),
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+INSERT INTO ia_impacto_uso 
+  (pais, ia_mais_utilizada, usuarios_milhoes, crescimento_anual_pct)
+VALUES
+  ('Brasil',         'ChatGPT',               35.0,  15.0),
+  ('EUA',            'ChatGPT',              180.0,  18.0),
+  ('Argentina',      'ChatGPT',               18.0,  22.0),
+  ('Espanha',        'ChatGPT / Gemini',       28.0,  16.0),
+  ('França',         'Mistral / ChatGPT',      24.0,  25.0),
+  ('China',          'Doubao / Ernie Bot',    230.0,  35.0),
+  ('Índia',          'ChatGPT',               95.0,  42.0),
+  ('Japão',          'ChatGPT / LINE AI',      42.0,  14.0),
+  ('Rússia',         'DeepSeek / Yandex',      38.0,  28.0),
+  ('Austrália',      'ChatGPT',               22.0,  19.0),
+  ('África do Sul',  'ChatGPT',               14.0,  31.0),
+  ('Canadá',         'Claude / ChatGPT',       31.0,  17.0),
+  ('Uruguai',        'ChatGPT',                2.1,  26.0),
+  ('Suíça',          'Mistral / ChatGPT',       6.8,  13.0),
+  ('Alemanha',       'ChatGPT / Aleph Alpha',  36.0,  15.0);
