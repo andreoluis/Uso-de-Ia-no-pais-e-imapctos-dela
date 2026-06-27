@@ -1,0 +1,35 @@
+CREATE TABLE uso_ia_global (
+  id SERIAL PRIMARY KEY,
+  pais VARCHAR(100) NOT NULL,
+  ia_mais_utilizada VARCHAR(100),
+  usuarios_milhoes NUMERIC(10, 2),
+  consumo_agua_milhoes_litros NUMERIC(10, 2),
+  tipo_resfriamento VARCHAR(100),
+  custo_anual_mi_usd NUMERIC(10, 2),
+  uso_principal VARCHAR(100),
+  pico_de_uso VARCHAR(50),
+  proximidade_agua VARCHAR(50),
+  crescimento_anual_pct NUMERIC(5, 2),
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+INSERT INTO uso_ia_global 
+  (pais, ia_mais_utilizada, usuarios_milhoes, consumo_agua_milhoes_litros, tipo_resfriamento, custo_anual_mi_usd, uso_principal, pico_de_uso, proximidade_agua, crescimento_anual_pct)
+VALUES
+  ('Brasil',         'ChatGPT',              35.0,  850.0,  'Híbrido',                   110.0, 'Geral/Educacional',       'Noite', 'Alta',     15.0),
+  ('EUA',            'ChatGPT',             180.0, 2400.0,  'Evaporativo',               480.0, 'Geral/Corporativo',       'Tarde', 'Média',    18.0),
+  ('Argentina',      'ChatGPT',              18.0,  320.0,  'Ar forçado',                 45.0, 'Educacional',             'Noite', 'Média',    22.0),
+  ('Espanha',        'ChatGPT / Gemini',     28.0,  510.0,  'Híbrido',                    75.0, 'Geral/Turismo',           'Tarde', 'Baixa',    16.0),
+  ('França',         'Mistral / ChatGPT',    24.0,  480.0,  'Líquido',                    85.0, 'Pesquisa/Corporativo',    'Tarde', 'Alta',     25.0),
+  ('China',          'Doubao / Ernie Bot',  230.0, 3100.0,  'Subaquático/Líquido',       620.0, 'Geral/Comércio',          'Noite', 'Alta',     35.0),
+  ('Índia',          'ChatGPT',              95.0, 1650.0,  'Evaporativo',               210.0, 'Educacional/Startups',    'Tarde', 'Baixa',    42.0),
+  ('Japão',          'ChatGPT / LINE AI',    42.0,  720.0,  'Líquido avançado',          145.0, 'Corporativo/Robótica',    'Tarde', 'Alta',     14.0),
+  ('Rússia',         'DeepSeek / Yandex',    38.0,  890.0,  'Ar forçado + livre',         95.0, 'Geral/Governamental',     'Noite', 'Média',    28.0),
+  ('Austrália',      'ChatGPT',              22.0,  410.0,  'Ar livre + evaporativo',     68.0, 'Geral/Mineração',         'Tarde', 'Baixa',    19.0),
+  ('África do Sul',  'ChatGPT',              14.0,  285.0,  'Ar forçado',                 38.0, 'Educacional/Financeiro',  'Tarde', 'Baixa',    31.0),
+  ('Canadá',         'Claude / ChatGPT',     31.0,  520.0,  'Free-cooling (ar exterior)', 92.0, 'Pesquisa/Corporativo',    'Tarde', 'Alta',     17.0),
+  ('Uruguai',        'ChatGPT',               2.1,   48.0,  'Ar natural + híbrido',        8.5, 'Governamental/Educacional','Noite','Alta',     26.0),
+  ('Suíça',          'Mistral / ChatGPT',     6.8,  125.0,  'Líquido + free-cooling',     42.0, 'Financeiro/Pesquisa',     'Tarde', 'Alta',     13.0),
+  ('Alemanha',       'ChatGPT / Aleph Alpha', 36.0,  640.0,  'Híbrido + líquido',         115.0, 'Industrial/Engenharia',   'Tarde', 'Média',    15.0);
+
+  SELECT * FROM uso_ia_global ORDER BY usuarios_milhoes DESC;
